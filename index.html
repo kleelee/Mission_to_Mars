@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MARS</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1><strong>Mission to Mars</strong></h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    
+    <div class="row" id="mars-news">
+      <div class="col-md-12">
+        <h1><strong>Latest Mars News</strong></h1>
+        <h3 class="heading">{{Mars_scrape.Mars_News.article_title}}</h3>
+        <h4>{{Mars_scrape.Mars_News.article_content}}</h4>
+      </div>
+    </div>
+
+    <div class="row" id="image-weather-table">
+      <div class="col-md-8">
+        <h2 class="heading"><strong>Featured Mars Image</strong></h4>
+        <img src="{{Mars_scrape.Space_Images}}" class="img-fluid" alt="Responsive image">
+      </div>
+
+      <div class="col-md-4 weather-container">
+        <h4><strong>Current Weather On Mars</strong></h4>
+        <p class="mars-weather">{{Mars_scrape.Mars_Weather}}</p>
+      </div>
+
+      <div class="col-md-4">
+        <h3> Mars Facts</h3>
+        <table>{{Mars_scrape.Mars_Facts | safe}}</table>
+      </div>
+    </div>
+
+
+    <div class="row" id="mars-pictures-text">
+        <div class="col-md-12">
+            <h3 class="images">Mars Images</h3>
+          </div>
+    </div>
+
+    <div class="row" id="mars-images">
+        <div class="col-md-6 image">
+            <img src="{{Mars_scrape.Mars_Hemispheres[0]["url"]}}" class="img-fluid mars-hemisphere" alt="Responsive image">
+          <h4 class="image-title">{{Mars_scrape.Mars_Hemispheres[0]["title"]}}</h4>
+        </div>
+        <div class="col-md-6 image">
+            <img src="{{Mars_scrape.Mars_Hemispheres[1]["url"]}}" class="img-fluid mars-hemisphere" alt="Responsive image">
+            <h4 class="image-title">{{Mars_scrape.Mars_Hemispheres[1]["title"]}}</h4>
+          </div>
+      </div>
+
+      <div class="row" id="mars-images">
+          <div class="col-md-6 image">
+              <img src="{{Mars_scrape.Mars_Hemispheres[2]["url"]}}" class="img-fluid mars-hemisphere" alt="Responsive image">
+            <h4 class="image-title">{{Mars_scrape.Mars_Hemispheres[2]["title"]}}</h4>
+          </div>
+          <div class="col-md-6 image">
+              <img src="{{Mars_scrape.Mars_Hemispheres[3]["url"]}}" class="img-fluid mars-hemisphere" alt="Responsive image">
+              <h4 class="image-title">{{Mars_scrape.Mars_Hemispheres[3]["title"]}}</h4>
+            </div>
+        </div>
+
+  </div>
+  
+</body>
+
+</html>
+
